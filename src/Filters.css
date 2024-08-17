@@ -1,0 +1,32 @@
+.filters {
+  display: flex;
+  justify-content: center;
+  padding: 15px;
+  box-sizing: border-box;
+}
+
+.category {
+  /* display: inline-block; */
+  margin-bottom: 10px;
+}
+
+.filter-btn {
+  background: rgb(234, 191, 0);
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+  color: black;
+  font: 600 1.05rem/1 "Nunito", sans-serif;
+  letter-spacing: 0.05em;
+  overflow: hidden;
+  padding: 1.15em 3.5em;
+  min-height: 3.3em;
+  position: relative;
+  text-transform: lowercase;
+}
+.filter-btn:hover {
+  background: rgb(191, 156, 2);
+}
+.filter-btn-active {
+  background: rgb(191, 156, 2);
+}
