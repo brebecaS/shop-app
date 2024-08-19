@@ -21,7 +21,7 @@ export default function App() {
   return (
     <>
       <div className="wrapper">
-        <Filters />
+        <Filters productsList={products}/>
         <Products productsList={products} />
         <Cart />
       </div>

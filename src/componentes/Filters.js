@@ -1,9 +1,9 @@
-export default function Filters() {
-  const categoryElements = ["category1", "category2", "category3"].map(
-    (category) => {
+export default function Filters({productsList}) {
+  const categoryElements = productsList.map(
+    (product) => {
       return (
         <div className="category">
-          <button className="filter-btn">{category}</button>
+          <button className="filter-btn">{product.category}</button>
         </div>
       );
     }
