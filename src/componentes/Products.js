@@ -1,8 +1,8 @@
 import Product from "./Product";
 
 export default function Products({ productsList }) {
-  const products = productsList.map((product, index) => {
-    return <Product product={product} index={index} />;
+  const products = productsList.map((product) => {
+    return <Product product={product} key={product.id} />;
   });
 
   return (

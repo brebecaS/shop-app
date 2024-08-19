@@ -1,6 +1,6 @@
 export default function Product({ index, product }) {
   return (
-    <div className="prod-container" key={index}>
+    <div className="prod-container">
       <img className="prod-img" src={product.image} alt={"img"} />
       <p className="prod-title">{product.title}</p>
 
