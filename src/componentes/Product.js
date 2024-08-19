@@ -1,4 +1,4 @@
-export default function Product({ index, product }) {
+export default function Product({ product }) {
   return (
     <div className="prod-container">
       <img className="prod-img" src={product.image} alt={"img"} />
