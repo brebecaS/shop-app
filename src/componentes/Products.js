@@ -1,4 +1,4 @@
-import { Product } from "./Product";
+import Product from "./Product";
 
 export default function Products({ productsList }) {
   const products = productsList.map((product, index) => {
