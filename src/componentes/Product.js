@@ -2,7 +2,11 @@ export default function Product({ product }) {
   return (
     <div className="prod-container">
       <img className="prod-img" src={product.image} alt={"img"} />
-      <p className="prod-title">{product.title}</p>
+      <p className="prod-title">
+        {product.title.slice().length < 30
+          ? product.title
+          : product.title.slice(0, 30) + "..."}
+      </p>
 
       <div className="price-container">
         <p>
