@@ -1,7 +1,7 @@
 export default function Products() {
-  const products = [...new Array(10)].map((product) => {
+  const products = [...new Array(10)].map((product, index) => {
     return (
-      <div className="prod-container">
+      <div className="prod-container" key={index}>
         <img
           className="prod-img"
           src={
