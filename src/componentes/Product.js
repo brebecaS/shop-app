@@ -1,12 +1,13 @@
 export default function Product({ product }) {
+  const shortTitle =
+    product.title.slice().length < 30
+      ? product.title
+      : product.title.slice(0, 30) + "...";
+
   return (
     <div className="prod-container">
       <img className="prod-img" src={product.image} alt={"img"} />
-      <p className="prod-title">
-        {product.title.slice().length < 30
-          ? product.title
-          : product.title.slice(0, 30) + "..."}
-      </p>
+      <p className="prod-title">{shortTitle}</p>
 
       <div className="price-container">
         <p>
