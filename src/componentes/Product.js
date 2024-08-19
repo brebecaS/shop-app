@@ -12,6 +12,7 @@ export default function Product({ index, product }) {
         <p style={{ color: "gray" }}>
           <small>rating: </small>
           <b>{product.rating.rate}</b>
+          <small> ({product.rating.count})</small>
         </p>
       </div>
       {/* add to redux state */}
