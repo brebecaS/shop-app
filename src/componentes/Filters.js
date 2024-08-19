@@ -1,13 +1,16 @@
-export default function Filters({productsList}) {
-  const categoryElements = productsList.map(
-    (product) => {
-      return (
-        <div className="category">
-          <button className="filter-btn">{product.category}</button>
-        </div>
-      );
-    }
-  );
+export default function Filters({ productsList }) {
+  const allCategories = productsList.map((product) => {
+    return product.category;
+  });
+  const uniqueCategories = [...new Set(allCategories)];
+
+  const categoryElements = uniqueCategories.map((category) => {
+    return (
+      <div className="category" key={category}>
+        <button className="filter-btn">{category}</button>
+      </div>
+    );
+  });
 
   return (
     <div className="filters">

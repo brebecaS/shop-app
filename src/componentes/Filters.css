@@ -11,6 +11,7 @@
 }
 
 .filter-btn {
+  width: 100%;
   background: rgb(234, 191, 0);
   border: none;
   border-radius: 7px;
