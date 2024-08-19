@@ -1,7 +1,7 @@
 import "./App.css";
 import "./Menu.css";
-import Cart from "./Cart";
-import Filters from "./Filters";
+import Cart from "../Cart";
+import Filters from "../Filters";
 import Product from "./Product";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
