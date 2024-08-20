@@ -1,13 +1,11 @@
-export default function Filters({productsList}) {
-  const categoryElements = productsList.map(
-    (product) => {
-      return (
-        <div className="category">
-          <button className="filter-btn">{product.category}</button>
-        </div>
-      );
-    }
-  );
+export default function Filters({ productsList }) {
+  const categoryElements = productsList.map((product) => {
+    return (
+      <div className="category">
+        <button className="filter-btn">{product.category}</button>
+      </div>
+    );
+  });
 
   return (
     <div className="filters">
