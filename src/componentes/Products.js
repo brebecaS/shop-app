@@ -1,6 +1,6 @@
 import Product from "./Product";
 
-export default function Products({ productsList, category, setCart}) {
+export default function Products({ productsList, category }) {
   const filteredProducts = productsList.filter((product) => {
     if (!category) return true;
 
@@ -9,7 +9,7 @@ export default function Products({ productsList, category, setCart}) {
   });
 
   const products = filteredProducts.map((product) => {
-    return <Product product={product} key={product.id} setCart={setCart}/>;
+    return <Product product={product} key={product.id} />;
   });
 
   return (

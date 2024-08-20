@@ -10,6 +10,7 @@ import { useEffect, useState, createContext } from "react";
 
 // 1, create context
 export const CategoryChangeContext = createContext();
+export const CartChangeContext = createContext();
 
 export default function App() {
   const [products, setProducts] = useState([]);
@@ -32,15 +33,13 @@ export default function App() {
   // 3. add shared state to the provider through value
   return (
     <CategoryChangeContext.Provider value={handleCategoryChange}>
-      <div className="wrapper">
-        <Filters productsList={products} />
-        <Products
-          productsList={products}
-          category={category}
-          setCart={setCart}
-        />
-        <Cart cart={cart} />
-      </div>
+      <CartChangeContext.Provider value={setCart}>
+        <div className="wrapper">
+          <Filters productsList={products} />
+          <Products productsList={products} category={category} />
+          <Cart cart={cart} />
+        </div>
+      </CartChangeContext.Provider>
     </CategoryChangeContext.Provider>
   );
 }

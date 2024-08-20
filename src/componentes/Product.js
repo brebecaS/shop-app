@@ -1,9 +1,12 @@
-export default function Product({ product, setCart}) {
+import { useContext } from "react";
+import { CartChangeContext } from "./App";
+
+export default function Product({ product }) {
   const shortTitle =
     product.title.slice().length < 30
       ? product.title
       : product.title.slice(0, 30) + "...";
-
+  const setCart = useContext(CartChangeContext);
   return (
     <div className="prod-container">
       <img className="prod-img" src={product.image} alt={"img"} />
@@ -21,7 +24,11 @@ export default function Product({ product, setCart}) {
         </p>
       </div>
       {/* add to redux state */}
-      <button className="add-btn" disabled={false} onClick={() => setCart((prevCart) => prevCart + 1)}>
+      <button
+        className="add-btn"
+        disabled={false}
+        onClick={() => setCart((prevCart) => prevCart + 1)}
+      >
         Add to cart
       </button>
       {/* <button className="remove-btn">Already in cart</button> */}
