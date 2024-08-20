@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { ChangeContext } from "./App";
 
 export default function Product({ product }) {
@@ -8,7 +8,7 @@ export default function Product({ product }) {
       : product.title.slice(0, 30) + "...";
 
   const { setCart } = useContext(ChangeContext);
-  const isDisabled = false;
+  const [isDisabled, setIsDisabled] = useState(false);
 
   return (
     <div className="prod-container">
@@ -30,7 +30,10 @@ export default function Product({ product }) {
       <button
         className="add-btn"
         disabled={isDisabled}
-        onClick={() => setCart((prevCart) => prevCart + 1)}
+        onClick={() => {
+          setCart((prevCart) => prevCart + 1);
+          setIsDisabled(!isDisabled);
+        }}
       >
         Add to cart
       </button>
