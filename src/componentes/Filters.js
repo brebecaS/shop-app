@@ -1,3 +1,5 @@
+import Filter from "./Filter";
+
 export default function Filters({ productsList }) {
   const allCategories = productsList.map((product) => {
     return product.category;
@@ -6,10 +8,8 @@ export default function Filters({ productsList }) {
 
   const categoryElements = uniqueCategories.map((category) => {
     return (
-      <div className="category" key={category}>
-        <button className="filter-btn" onClick={() => {}}>
-          {category}
-        </button>
+      <div key={category}>
+        <Filter onClick={""}>{category}</Filter>;
       </div>
     );
   });

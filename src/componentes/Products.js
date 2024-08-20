@@ -1,11 +1,11 @@
 import Product from "./Product";
 
 export default function Products({ productsList, category }) {
-  const filterProduct = productsList.filter(
+  const filteredProducts = productsList.filter(
     (product) => product.category === category
   );
 
-  const products = filterProduct.map((product) => {
+  const products = filteredProducts.map((product) => {
     return <Product product={product} key={product.id} />;
   });
 
