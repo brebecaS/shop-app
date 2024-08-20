@@ -1,9 +1,11 @@
 import Product from "./Product";
 
-export default function Products({ productsList }) {
-  const category = "electronics";
+export default function Products({ productsList, category }) {
+  const filterProduct = productsList.filter(
+    (product) => product.category === category
+  );
 
-  const products = productsList.map((product) => {
+  const products = filterProduct.map((product) => {
     return <Product product={product} key={product.id} />;
   });
 

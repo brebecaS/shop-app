@@ -23,7 +23,7 @@ export default function App() {
     <>
       <div className="wrapper">
         <Filters productsList={products} />
-        <Products productsList={products} />
+        <Products productsList={products} category="" />
         <Cart />
       </div>
     </>
