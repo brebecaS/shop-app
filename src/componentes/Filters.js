@@ -22,6 +22,9 @@ export default function Filters({ productsList, onCategoryChange }) {
         <h4>Choose a category:</h4>
 
         {categoryElements}
+       <Filter onClick={onCategoryChange} category={""}>
+          Clear
+       </Filter>
       </div>
     </div>
   );
