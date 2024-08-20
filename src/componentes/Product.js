@@ -1,4 +1,4 @@
-export default function Product({ product }) {
+export default function Product({ product, setCart}) {
   const shortTitle =
     product.title.slice().length < 30
       ? product.title
@@ -21,7 +21,7 @@ export default function Product({ product }) {
         </p>
       </div>
       {/* add to redux state */}
-      <button className="add-btn" disabled={false}>
+      <button className="add-btn" disabled={false} onClick={() => setCart((prevCart) => prevCart + 1)}>
         Add to cart
       </button>
       {/* <button className="remove-btn">Already in cart</button> */}

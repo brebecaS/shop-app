@@ -11,6 +11,7 @@ import { useEffect, useState } from "react";
 export default function App() {
   const [products, setProducts] = useState([]);
   const [category, setCategory] = useState("");
+  const [cart, setCart] = useState(0);
 
   function handleCategoryChange(newCategory) {
     setCategory(newCategory);
@@ -31,8 +32,8 @@ export default function App() {
           productsList={products}
           onCategoryChange={handleCategoryChange}
         />
-        <Products productsList={products} category={category} />
-        <Cart />
+        <Products productsList={products} category={category} setCart={setCart}/>
+        <Cart cart={cart}/>
       </div>
     </>
   );
