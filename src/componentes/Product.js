@@ -1,12 +1,14 @@
 import { useContext } from "react";
-import { CartChangeContext } from "./App";
+import { ChangeContext } from "./App";
 
 export default function Product({ product }) {
   const shortTitle =
     product.title.slice().length < 30
       ? product.title
       : product.title.slice(0, 30) + "...";
-  const setCart = useContext(CartChangeContext);
+
+  const { setCart } = useContext(ChangeContext);
+
   return (
     <div className="prod-container">
       <img className="prod-img" src={product.image} alt={"img"} />

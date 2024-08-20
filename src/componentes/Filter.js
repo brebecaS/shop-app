@@ -1,13 +1,13 @@
 import { useContext } from "react";
 
-import { CategoryChangeContext } from "./App";
+import { ChangeContext } from "./App";
 
 export default function Filter({ children, category }) {
   // 4. consume the shared state using useContext and the created context
-  const handleCategoryChange = useContext(CategoryChangeContext);
+  const { handleCategoryChange } = useContext(ChangeContext);
   return (
-    <div className="category">
-      <button
+    <div className="category"
+
         className="filter-btn"
         onClick={() => handleCategoryChange(category)}
       >
