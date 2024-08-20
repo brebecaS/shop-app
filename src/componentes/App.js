@@ -5,8 +5,11 @@ import "./Cart.css";
 import Filters from "./Filters";
 import Products from "./Products";
 import Cart from "./Cart";
-import { useEffect, useState } from "react";
+import { useEffect, useState, createContext } from "react";
 // "https://fakestoreapi.com/products/"
+
+// 1, create context
+export const CategoryChangeContext = createContext();
 
 export default function App() {
   const [products, setProducts] = useState([]);
@@ -25,16 +28,19 @@ export default function App() {
     });
   }, []);
 
+  // 2. wrap the component with the provider
+  // 3. add shared state to the provider through value
   return (
-    <>
+    <CategoryChangeContext.Provider value={handleCategoryChange}>
       <div className="wrapper">
-        <Filters
+        <Filters productsList={products} />
+        <Products
           productsList={products}
-          onCategoryChange={handleCategoryChange}
+          category={category}
+          setCart={setCart}
         />
-        <Products productsList={products} category={category} setCart={setCart}/>
-        <Cart cart={cart}/>
+        <Cart cart={cart} />
       </div>
-    </>
+    </CategoryChangeContext.Provider>
   );
 }
