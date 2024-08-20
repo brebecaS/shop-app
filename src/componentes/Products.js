@@ -4,6 +4,7 @@ export default function Products({ productsList, category }) {
   const filteredProducts = productsList.filter(
     (product) => product.category === category
   );
+  console.log(filteredProducts);
 
   const products = filteredProducts.map((product) => {
     return <Product product={product} key={product.id} />;

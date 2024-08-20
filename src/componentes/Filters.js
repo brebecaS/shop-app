@@ -9,7 +9,7 @@ export default function Filters({ productsList }) {
   const categoryElements = uniqueCategories.map((category) => {
     return (
       <div key={category}>
-        <Filter onClick={""}>{category}</Filter>;
+        <Filter onClick={""}>{category}</Filter>
       </div>
     );
   });

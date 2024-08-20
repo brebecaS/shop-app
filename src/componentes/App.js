@@ -10,6 +10,7 @@ import { useEffect, useState } from "react";
 
 export default function App() {
   const [products, setProducts] = useState([]);
+  const category = "electronics";
 
   useEffect(() => {
     fetch("https://fakestoreapi.com/products/").then(async (response) => {
@@ -23,7 +24,7 @@ export default function App() {
     <>
       <div className="wrapper">
         <Filters productsList={products} />
-        <Products productsList={products} category="" />
+        <Products productsList={products} category={category} />
         <Cart />
       </div>
     </>
