@@ -14,6 +14,7 @@ export default function App() {
   useEffect(() => {
     fetch("https://fakestoreapi.com/products/").then(async (response) => {
       const productsResponse = await response.json();
+
       setProducts(productsResponse);
     });
   }, []);

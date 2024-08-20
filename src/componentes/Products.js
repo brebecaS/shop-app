@@ -1,6 +1,8 @@
 import Product from "./Product";
 
 export default function Products({ productsList }) {
+  const category = "electronics";
+
   const products = productsList.map((product) => {
     return <Product product={product} key={product.id} />;
   });

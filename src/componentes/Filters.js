@@ -7,7 +7,9 @@ export default function Filters({ productsList }) {
   const categoryElements = uniqueCategories.map((category) => {
     return (
       <div className="category" key={category}>
-        <button className="filter-btn">{category}</button>
+        <button className="filter-btn" onClick={() => {}}>
+          {category}
+        </button>
       </div>
     );
   });
