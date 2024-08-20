@@ -8,6 +8,7 @@ export default function Product({ product }) {
       : product.title.slice(0, 30) + "...";
 
   const { setCart } = useContext(ChangeContext);
+  const isDisabled = false;
 
   return (
     <div className="prod-container">
@@ -28,7 +29,7 @@ export default function Product({ product }) {
       {/* add to redux state */}
       <button
         className="add-btn"
-        disabled={false}
+        disabled={isDisabled}
         onClick={() => setCart((prevCart) => prevCart + 1)}
       >
         Add to cart
