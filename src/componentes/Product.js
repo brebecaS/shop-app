@@ -28,7 +28,7 @@ export default function Product({ product }) {
       {/* add to redux state */}
       <button
         className="add-btn"
-        disabled={false}
+        disabled={true}
         onClick={() => setCart((prevCart) => prevCart + 1)}
       >
         Add to cart
