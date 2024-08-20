@@ -77,7 +77,9 @@
 .add-btn:hover {
   background-color: rgb(72, 70, 84);
 }
-
+.add-btn:disabled {
+  background-color: rgb(72, 70, 84);
+}
 .remove-btn {
   background-color: rgb(174, 174, 174);
   color: rgb(255, 255, 255);
