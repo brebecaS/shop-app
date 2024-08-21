@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setCart } from "./cartSlice";
 
 export default function Product({ product }) {
   const shortTitle =
@@ -7,6 +9,10 @@ export default function Product({ product }) {
       : product.title.slice(0, 30) + "...";
 
   const [isDisabled, setIsDisabled] = useState(false);
+  const dispatch = useDispatch();
+  const cart = useSelector((state) => {
+    return state.cart.cart;
+  });
 
   return (
     <div className="prod-container">
@@ -29,6 +35,7 @@ export default function Product({ product }) {
         className="add-btn"
         disabled={isDisabled}
         onClick={() => {
+          dispatch(setCart(cart + 1));
           //   setCart((prevCart) => prevCart + 1);
           setIsDisabled(!isDisabled);
         }}
