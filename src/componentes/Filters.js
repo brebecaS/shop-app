@@ -1,6 +1,9 @@
 import Filter from "./Filter";
+import { useSelector } from "react-redux";
 
-export default function Filters({ productsList }) {
+export default function Filters() {
+  const productsList = useSelector((state) => state.products);
+
   const allCategories = productsList.map((product) => {
     return product.category;
   });
