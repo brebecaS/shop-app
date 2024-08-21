@@ -1,4 +1,4 @@
-export default function Cart({cart}) {
+export default function Cart({ cart }) {
   return (
     <div className="cart-wrapper">
       <button className="cart">
