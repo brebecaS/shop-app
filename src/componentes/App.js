@@ -16,7 +16,11 @@ export const ChangeContext = createContext();
 export default function App() {
   const [category, setCategory] = useState("");
   const [cart, setCart] = useState(0);
-
+  const cart_ = useSelector((state) => {
+    console.log(state);
+    return state.cart;
+  });
+  console.log(cart_);
   const dispatch = useDispatch();
 
   function handleCategoryChange(newCategory) {
