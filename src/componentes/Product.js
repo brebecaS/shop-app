@@ -1,5 +1,4 @@
-import { useContext, useState } from "react";
-import { ChangeContext } from "./App";
+import { useState } from "react";
 
 export default function Product({ product }) {
   const shortTitle =
@@ -7,7 +6,6 @@ export default function Product({ product }) {
       ? product.title
       : product.title.slice(0, 30) + "...";
 
-  const { setCart } = useContext(ChangeContext);
   const [isDisabled, setIsDisabled] = useState(false);
 
   return (
@@ -31,7 +29,7 @@ export default function Product({ product }) {
         className="add-btn"
         disabled={isDisabled}
         onClick={() => {
-          setCart((prevCart) => prevCart + 1);
+          //   setCart((prevCart) => prevCart + 1);
           setIsDisabled(!isDisabled);
         }}
       >

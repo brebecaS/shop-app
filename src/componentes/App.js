@@ -15,12 +15,7 @@ export const ChangeContext = createContext();
 
 export default function App() {
   const [category, setCategory] = useState("");
-  const [cart, setCart] = useState(0);
-  const cart_ = useSelector((state) => {
-    console.log(state);
-    return state.cart;
-  });
-  console.log(cart_);
+
   const dispatch = useDispatch();
 
   function handleCategoryChange(newCategory) {
@@ -38,11 +33,11 @@ export default function App() {
   // 2. wrap the component with the provider
   // 3. add shared state to the provider through value
   return (
-    <ChangeContext.Provider value={{ handleCategoryChange, setCart }}>
+    <ChangeContext.Provider value={{ handleCategoryChange }}>
       <div className="wrapper">
         <Filters />
         <Products category={category} />
-        <Cart cart={cart} />
+        <Cart />
       </div>
     </ChangeContext.Provider>
   );

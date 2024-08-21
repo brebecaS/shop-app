@@ -1,4 +1,10 @@
-export default function Cart({ cart }) {
+import { useSelector } from "react-redux";
+
+export default function Cart() {
+  const cart = useSelector((state) => {
+    return state.cart.cart;
+  });
+
   return (
     <div className="cart-wrapper">
       <button className="cart">

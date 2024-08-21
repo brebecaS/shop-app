@@ -2,7 +2,7 @@ import Product from "./Product";
 import { useSelector } from "react-redux";
 
 export default function Products({ category }) {
-  const productsList = useSelector((state) => state.products);
+  const productsList = useSelector((state) => state.products.products);
 
   const filteredProducts = productsList.filter((product) => {
     if (!category) return true;
