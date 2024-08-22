@@ -1,16 +1,18 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setCart } from "./cartSlice";
+import { setCart, incrementCart, decrementCart } from "./cartSlice";
 
 export default function Product({ product }) {
   const [productQuantity, setProductQuantity] = useState(0);
 
   function handleIncrement() {
     setProductQuantity(productQuantity + 1);
+    dispatch(incrementCart());
   }
 
   function handleDecrement() {
     setProductQuantity(productQuantity - 1);
+    dispatch(decrementCart());
   }
 
   const shortTitle =
