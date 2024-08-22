@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { addToCart } from "./cartSlice";
+import { addToCart, removeFromCart } from "./cartSlice";
 
 export default function Product({ product }) {
   const [productQuantity, setProductQuantity] = useState(0);
@@ -47,13 +47,21 @@ export default function Product({ product }) {
         disabled={isAddToCardDisabled}
         onClick={() => {
           dispatch(addToCart(product));
-          setIsAddToCardDisabled(!isAddToCardDisabled);
+          setIsAddToCardDisabled(true);
         }}
       >
         Add to cart
       </button>
       {isAddToCardDisabled === true ? (
-        <button className="remove-btn">Remove form cart</button>
+        <button
+          className="remove-btn"
+          onClick={() => {
+            dispatch(removeFromCart(product));
+            setIsAddToCardDisabled(false);
+          }}
+        >
+          Remove form cart
+        </button>
       ) : (
         <></>
       )}
