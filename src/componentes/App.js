@@ -5,23 +5,12 @@ import "./Cart.css";
 import Filters from "./Filters";
 import Products from "./Products";
 import Cart from "./Cart";
-import { useEffect, useState, createContext } from "react";
+import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { setProducts } from "./productSlice";
-import { setCategory } from "./categorySlice";
-// "https://fakestoreapi.com/products/"
-
-// 1. create context
-export const ChangeContext = createContext();
 
 export default function App() {
-  // const [category, setCategory] = useState("");
-
   const dispatch = useDispatch();
-
-  function handleCategoryChange(newCategory) {
-    dispatch(setCategory(newCategory));
-  }
 
   useEffect(() => {
     fetch("https://fakestoreapi.com/products/").then(async (response) => {
@@ -31,15 +20,11 @@ export default function App() {
     });
   }, [dispatch]);
 
-  // 2. wrap the component with the provider
-  // 3. add shared state to the provider through value
   return (
-    <ChangeContext.Provider value={{ handleCategoryChange }}>
-      <div className="wrapper">
-        <Filters />
-        <Products />
-        <Cart />
-      </div>
-    </ChangeContext.Provider>
+    <div className="wrapper">
+      <Filters />
+      <Products />
+      <Cart />
+    </div>
   );
 }

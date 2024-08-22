@@ -1,16 +1,14 @@
-import { useContext } from "react";
-
-import { ChangeContext } from "./App";
+import { useDispatch } from "react-redux";
+import { setCategory } from "./categorySlice";
 
 export default function Filter({ children, category }) {
-  // 4. consume the shared state using useContext and the created context
-  const { handleCategoryChange } = useContext(ChangeContext);
+  const dispatch = useDispatch();
 
   return (
     <div className="category">
       <button
         className="filter-btn"
-        onClick={() => handleCategoryChange(category)}
+        onClick={() => dispatch(setCategory(category))}
       >
         {children}
       </button>

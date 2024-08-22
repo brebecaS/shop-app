@@ -8,7 +8,7 @@ export default function Product({ product }) {
       ? product.title
       : product.title.slice(0, 30) + "...";
 
-  const [isDisabled, setIsDisabled] = useState(false);
+  const [isAddToCardDisabled, setIsAddToCardDisabled] = useState(false);
   const dispatch = useDispatch();
   const cart = useSelector((state) => {
     return state.cart.cart;
@@ -30,19 +30,24 @@ export default function Product({ product }) {
           <small> ({product.rating.count})</small>
         </p>
       </div>
-      {/* add to redux state */}
-      <button
+      <button>+</button>
+      {0}
+      <button>-</button>
+      {/* <button
         className="add-btn"
-        disabled={isDisabled}
+        disabled={isAddToCardDisabled}
         onClick={() => {
           dispatch(setCart(cart + 1));
-          //   setCart((prevCart) => prevCart + 1);
-          setIsDisabled(!isDisabled);
+          setIsAddToCardDisabled(!isAddToCardDisabled);
         }}
       >
         Add to cart
-      </button>
-      {/* <button className="remove-btn">Already in cart</button> */}
+      </button> */}
+      {/* {isAddToCardDisabled === true ? (
+        <button className="remove-btn">Remove form cart</button>
+      ) : (
+        <></>
+      )} */}
     </div>
   );
 }
