@@ -8,18 +8,19 @@ import Cart from "./Cart";
 import { useEffect, useState, createContext } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setProducts } from "./productSlice";
+import { setCategory } from "./categorySlice";
 // "https://fakestoreapi.com/products/"
 
 // 1. create context
 export const ChangeContext = createContext();
 
 export default function App() {
-  const [category, setCategory] = useState("");
+  // const [category, setCategory] = useState("");
 
   const dispatch = useDispatch();
 
   function handleCategoryChange(newCategory) {
-    setCategory(newCategory);
+    dispatch(setCategory(newCategory));
   }
 
   useEffect(() => {
@@ -36,7 +37,7 @@ export default function App() {
     <ChangeContext.Provider value={{ handleCategoryChange }}>
       <div className="wrapper">
         <Filters />
-        <Products category={category} />
+        <Products />
         <Cart />
       </div>
     </ChangeContext.Provider>
