@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setCart, incrementCart, decrementCart } from "./cartSlice";
+import { incrementCart, decrementCart } from "./cartSlice";
 
 export default function Product({ product }) {
   const [productQuantity, setProductQuantity] = useState(0);
+  const dispatch = useDispatch();
 
   function handleIncrement() {
     setProductQuantity(productQuantity + 1);
@@ -20,11 +21,7 @@ export default function Product({ product }) {
       ? product.title
       : product.title.slice(0, 30) + "...";
 
-  const [isAddToCardDisabled, setIsAddToCardDisabled] = useState(false);
-  const dispatch = useDispatch();
-  const cart = useSelector((state) => {
-    return state.cart.cart;
-  });
+  //   const [isAddToCardDisabled, setIsAddToCardDisabled] = useState(false);
 
   return (
     <div className="prod-container">
