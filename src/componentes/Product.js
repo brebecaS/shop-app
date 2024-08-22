@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { incrementCart, decrementCart } from "./cartSlice";
+import { useDispatch } from "react-redux";
+import { addToCart } from "./cartSlice";
 
 export default function Product({ product }) {
   const [productQuantity, setProductQuantity] = useState(0);
@@ -8,12 +8,10 @@ export default function Product({ product }) {
 
   function handleIncrement() {
     setProductQuantity(productQuantity + 1);
-    dispatch(incrementCart());
   }
 
   function handleDecrement() {
     setProductQuantity(productQuantity - 1);
-    dispatch(decrementCart());
   }
 
   const shortTitle =
@@ -21,7 +19,7 @@ export default function Product({ product }) {
       ? product.title
       : product.title.slice(0, 30) + "...";
 
-  //   const [isAddToCardDisabled, setIsAddToCardDisabled] = useState(false);
+  const [isAddToCardDisabled, setIsAddToCardDisabled] = useState(false);
 
   return (
     <div className="prod-container">
@@ -39,21 +37,21 @@ export default function Product({ product }) {
           <small> ({product.rating.count})</small>
         </p>
       </div>
-      <button onClick={handleIncrement}>+</button>
+      {/* <button onClick={handleIncrement}>+</button>
       {productQuantity}
       <button onClick={handleDecrement} disabled={productQuantity === 0}>
         -
-      </button>
-      {/* <button
+      </button> */}
+      <button
         className="add-btn"
         disabled={isAddToCardDisabled}
         onClick={() => {
-          dispatch(setCart(cart + 1));
+          dispatch(addToCart(product));
           setIsAddToCardDisabled(!isAddToCardDisabled);
         }}
       >
         Add to cart
-      </button> */}
+      </button>
       {/* {isAddToCardDisabled === true ? (
         <button className="remove-btn">Remove form cart</button>
       ) : (

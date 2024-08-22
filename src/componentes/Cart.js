@@ -10,7 +10,7 @@ export default function Cart({ handleOpen }) {
       <button className="cart" onClick={handleOpen}>
         <div className="content">
           {/* display redux cart state */}
-          <div className="quantity">{cart}</div>
+          <div className="quantity">{cart?.length}</div>
         </div>
       </button>
     </div>
