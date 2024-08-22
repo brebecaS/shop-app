@@ -6,7 +6,7 @@ import Filters from "./Filters";
 import Products from "./Products";
 import Cart from "./Cart";
 import { useEffect, useState, createContext } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { setProducts } from "./productSlice";
 import { setCategory } from "./categorySlice";
 // "https://fakestoreapi.com/products/"

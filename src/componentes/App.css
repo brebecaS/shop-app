@@ -53,6 +53,23 @@
   }
 }
 
+.prod-img2 {
+  width: 50px;
+  height: 80px;
+  position: relative;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.cart-prod {
+  padding: 50px;
+  border-radius: 10px;
+  background-color: #f3f3f3;
+  display: flex;
+  justify-content: space-between;
+}
+
 .prod-title {
   position: relative;
   padding: 0px 20px;
