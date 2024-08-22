@@ -3,6 +3,16 @@ import { useDispatch, useSelector } from "react-redux";
 import { setCart } from "./cartSlice";
 
 export default function Product({ product }) {
+  const [productQuantity, setProductQuantity] = useState(0);
+
+  function handleIncrement() {
+    setProductQuantity(productQuantity + 1);
+  }
+
+  function handleDecrement() {
+    setProductQuantity(productQuantity - 1);
+  }
+
   const shortTitle =
     product.title.slice().length < 30
       ? product.title
@@ -30,9 +40,11 @@ export default function Product({ product }) {
           <small> ({product.rating.count})</small>
         </p>
       </div>
-      <button>+</button>
-      {0}
-      <button>-</button>
+      <button onClick={handleIncrement}>+</button>
+      {productQuantity}
+      <button onClick={handleDecrement} disabled={productQuantity === 0}>
+        -
+      </button>
       {/* <button
         className="add-btn"
         disabled={isAddToCardDisabled}
