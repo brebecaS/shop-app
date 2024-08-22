@@ -37,11 +37,11 @@ export default function Product({ product }) {
           <small> ({product.rating.count})</small>
         </p>
       </div>
-      {/* <button onClick={handleIncrement}>+</button>
+      <button onClick={handleIncrement}>+</button>
       {productQuantity}
       <button onClick={handleDecrement} disabled={productQuantity === 0}>
         -
-      </button> */}
+      </button>
       <button
         className="add-btn"
         disabled={isAddToCardDisabled}
