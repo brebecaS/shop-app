@@ -11,6 +11,11 @@ export const cartSlice = createSlice({
     addToCart: (state, action) => {
       state.cart = [...state.cart, action.payload];
     },
+    removeFromCart: (state, action) => {
+      state.cart = state.cart.filter(
+        (product) => product.id !== action.payload.id
+      );
+    },
   },
 });
 

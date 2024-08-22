@@ -52,11 +52,11 @@ export default function Product({ product }) {
       >
         Add to cart
       </button>
-      {/* {isAddToCardDisabled === true ? (
+      {isAddToCardDisabled === true ? (
         <button className="remove-btn">Remove form cart</button>
       ) : (
         <></>
-      )} */}
+      )}
     </div>
   );
 }
