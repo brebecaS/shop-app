@@ -6,9 +6,9 @@ import Filters from "./Filters";
 import Products from "./Products";
 import Cart from "./Cart";
 import { useEffect, useState, createContext } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { setProducts } from "./productSlice";
-// "https://fakestoreapi.com/products/"
+import BasicModal from "../extra/Modal";
 
 // 1. create context
 export const ChangeContext = createContext();
@@ -38,6 +38,7 @@ export default function App() {
         <Filters />
         <Products category={category} />
         <Cart />
+        <BasicModal />
       </div>
     </ChangeContext.Provider>
   );
