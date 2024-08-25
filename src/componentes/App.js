@@ -17,11 +17,15 @@ export default function App() {
   const handleClose = () => setOpen(false);
 
   useEffect(() => {
-    fetch("https://fakestoreapi.com/products/").then(async (response) => {
-      const productsResponse = await response.json();
+    fetch("https://fakestoreapi.com/products/")
+      .then(async (response) => {
+        const productsResponse = await response.json();
 
-      dispatch(setProducts(productsResponse));
-    });
+        dispatch(setProducts(productsResponse));
+      })
+      .catch(() => {
+        dispatch(setProducts([]));
+      });
   }, [dispatch]);
 
   return (
