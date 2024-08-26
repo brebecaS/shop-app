@@ -1,5 +1,4 @@
 import "./App.css";
-import "./Menu.css";
 import "./Filters.css";
 import "./Cart.css";
 import Filters from "./Filters";
