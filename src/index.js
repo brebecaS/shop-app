@@ -6,13 +6,23 @@ import Nav from "./extra/NavBar";
 import { Provider } from "react-redux";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import store from "./componentes/store";
+import { About } from "./componentes/About";
+import { AllProducts } from "./componentes/AllProducts";
+import { Contact } from "./componentes/Contact";
+import { Account } from "./componentes/Account";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
   <BrowserRouter>
     <Provider store={store}>
       <Nav />
-      <App />
+      <Routes>
+        <Route path="/" element={<App />} />
+        <Route path="about" element={<About />} />
+        <Route path="allProduct" element={<AllProducts />} />
+        <Route path="contact" element={<Contact />} />
+        <Route path="account" element={<Account />} />
+      </Routes>
     </Provider>
   </BrowserRouter>
 );

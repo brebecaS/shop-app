@@ -9,6 +9,7 @@ import { useDispatch } from "react-redux";
 import { setProducts } from "./productSlice";
 import BasicModal from "./Modal";
 
+
 export default function App() {
   const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
