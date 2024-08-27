@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addToCart, removeFromCart } from "./cartSlice";
+import { Link } from "react-router-dom";
 
 export default function Product({ product }) {
   const [productQuantity, setProductQuantity] = useState(0);
@@ -24,7 +25,9 @@ export default function Product({ product }) {
   return (
     <div className="prod-container">
       <img className="prod-img" src={product.image} alt={"img"} />
-      <p className="prod-title">{shortTitle}</p>
+      <Link className="prod-title" to={"product/" + product.id}>
+        {shortTitle}
+      </Link>
 
       <div className="price-container">
         <p>
