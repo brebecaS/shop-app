@@ -1,27 +1,22 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import Product from "./Product";
 
 const ProductPage = () => {
-  //1. accesam id-ul produsului
-  //2. facem fetch catre server/api pentru a prelua datele produsului
-  //3. afisam datele produsului
-
   const params = useParams();
   const productId = params.productId;
-  const [products, setProducts] = useState([]);
-  const currentProducts = products.find(
-    (product) => product.id === Number(productId)
-  );
+  const [currentProducts, setCurrentProducts] = useState(null);
 
   useEffect(() => {
-    fetch("https://fakestoreapi.com/products/").then(async (response) => {
-      const productsResponse = await response.json();
-      setProducts(productsResponse);
-    });
-  }, []);
+    fetch("https://fakestoreapi.com/products/" + productId).then(
+      async (response) => {
+        const productsResponse = await response.json();
+        setCurrentProducts(productsResponse);
+      }
+    );
+  }, [productId]);
 
-  console.log(products);
-  return <h1>{currentProducts?.title}</h1>;
+  return currentProducts && <Product product={currentProducts} />;
 };
 
 export default ProductPage;
