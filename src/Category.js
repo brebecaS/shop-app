@@ -1,9 +1,10 @@
+import CategoryStyles from "./Filters.module.css";
+
 const Category = (props) => {
-  console.log(props.isClearButton);
   return (
-    <div className="category">
+    <div className={CategoryStyles.category}>
       <button
-        className="filter-btn"
+        className={CategoryStyles["filter-btn"]}
         onClick={() => {
           if (props.isClearButton) props.setCategory("");
           else props.setCategory(props.categoryName);

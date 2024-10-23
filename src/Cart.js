@@ -1,9 +1,11 @@
+import CartStyle from "./Cart.module.css";
+
 const Cart = (props) => {
   return (
-    <div className="cart-wrapper">
-      <button className="cart">
-        <div className="content">
-          <div className="quantity">{props.numberOfCartItems}</div>
+    <div className={CartStyle["cart-wrapper"]}>
+      <button className={CartStyle.cart}>
+        <div className={CartStyle.content}>
+          <div className={CartStyle.quantity}>{props.numberOfCartItems}</div>
         </div>{" "}
       </button>
     </div>

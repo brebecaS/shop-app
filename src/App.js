@@ -1,6 +1,5 @@
 import "./Menu.css";
-import "./Filters.css";
-import "./Cart.css";
+
 import "./App.css";
 
 import { useState } from "react";

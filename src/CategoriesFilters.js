@@ -1,4 +1,5 @@
 import Category from "./Category";
+import CategoryStyles from "./Filters.module.css";
 
 const CategoriesFilters = (props) => {
   const categories = [
@@ -20,7 +21,7 @@ const CategoriesFilters = (props) => {
   });
 
   return (
-    <div className="filters">
+    <div className={CategoryStyles.filters}>
       <div>
         <h4>Choose a category:</h4>
         {categoryElements}
