@@ -1,10 +1,9 @@
 import Product from "./Product";
 
-const Products = () => {
-  const products = [...new Array(10)].map((product, index) => {
-    return <Product key={index} />;
-  });
-
+const Products = (props) => {
+  const products = [...new Array(10)].map((product, index) => (
+    <Product key={index} updateCartValue={props.setNumberOfCartItems} />
+  ));
   return (
     <div>
       <h1>Products</h1>

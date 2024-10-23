@@ -1,9 +1,9 @@
-const Cart = () => {
+const Cart = (props) => {
   return (
     <div className="cart-wrapper">
       <button className="cart">
         <div className="content">
-          <div className="quantity">0</div>
+          <div className="quantity">{props.numberOfCartItems}</div>
         </div>
       </button>
     </div>

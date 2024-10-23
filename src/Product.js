@@ -1,4 +1,8 @@
-const Product = () => {
+import { useState } from "react";
+const Product = (props) => {
+  //   const [isPressed, setIsPressed] = useState(false);
+  const [numberOfItems, setNumberOfItems] = useState(0);
+
   return (
     <div className="prod-container">
       <img
@@ -9,7 +13,6 @@ const Product = () => {
         alt={"img"}
       />
       <p className="prod-title">Product name</p>
-
       <div className="price-container">
         <p>
           <small>$</small>
@@ -20,8 +23,34 @@ const Product = () => {
           <b>3.9</b>
         </p>
       </div>
-      <button className="add-btn" disabled={false}>
+      {/* <button
+        className="add-btn"
+        disabled={isPressed}
+        onClick={() => {
+          props.updateCartValue((prevNumber) => prevNumber + 1);
+
+          setIsPressed(true);
+        }}
+      >
         Add to cart
+      </button> */}
+      <button
+        onClick={() => {
+          setNumberOfItems(numberOfItems + 1);
+          props.updateCartValue((prevNumber) => prevNumber + 1);
+        }}
+      >
+        +
+      </button>
+      {numberOfItems}
+      <button
+        disabled={!numberOfItems}
+        onClick={() => {
+          setNumberOfItems(numberOfItems - 1);
+          props.updateCartValue((prevNumber) => prevNumber - 1);
+        }}
+      >
+        -
       </button>
     </div>
   );
