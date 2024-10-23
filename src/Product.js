@@ -1,6 +1,6 @@
 import { useState } from "react";
 const Product = (props) => {
-  //   const [isPressed, setIsPressed] = useState(false);
+  const [isPressed, setIsPressed] = useState(false);
   const [numberOfItems, setNumberOfItems] = useState(0);
 
   return (
@@ -12,7 +12,8 @@ const Product = (props) => {
         }
         alt={"img"}
       />
-      <p className="prod-title">Product name</p>
+      <p className="prod-title">{props.product.name}</p>
+      <p className="prod-category">{props.product.category}</p>
       <div className="price-container">
         <p>
           <small>$</small>
@@ -23,7 +24,7 @@ const Product = (props) => {
           <b>3.9</b>
         </p>
       </div>
-      {/* <button
+      <button
         className="add-btn"
         disabled={isPressed}
         onClick={() => {
@@ -33,8 +34,8 @@ const Product = (props) => {
         }}
       >
         Add to cart
-      </button> */}
-      <button
+      </button>
+      {/* <button
         onClick={() => {
           setNumberOfItems(numberOfItems + 1);
           props.updateCartValue((prevNumber) => prevNumber + 1);
@@ -51,7 +52,7 @@ const Product = (props) => {
         }}
       >
         -
-      </button>
+      </button> */}
     </div>
   );
 };

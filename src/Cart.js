@@ -4,7 +4,7 @@ const Cart = (props) => {
       <button className="cart">
         <div className="content">
           <div className="quantity">{props.numberOfCartItems}</div>
-        </div>
+        </div>{" "}
       </button>
     </div>
   );
