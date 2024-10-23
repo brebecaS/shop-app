@@ -9,18 +9,23 @@ import Cart from "./Cart";
 import CategoriesFilters from "./CategoriesFilters";
 
 function App() {
-  const [numberOfCartItems, setNumberOfCartItems] = useState(0);
+  //   const [numberOfCartItems, setNumberOfCartItems] = useState(0);
+  const [cartItems, setCartItems] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("");
 
   return (
     <div className="wrapper">
-      <CategoriesFilters setSelectedCategory={setSelectedCategory} />
+      <CategoriesFilters
+        setSelectedCategory={setSelectedCategory}
+        setCartItems={setCartItems}
+      />
 
       <Products
-        setNumberOfCartItems={setNumberOfCartItems}
+        addProductToCart={setCartItems}
         category={selectedCategory}
+        cartItems={cartItems}
       />
-      <Cart numberOfCartItems={numberOfCartItems} />
+      <Cart cartItems={cartItems} />
     </div>
   );
 }

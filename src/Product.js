@@ -1,7 +1,9 @@
 import { useState } from "react";
 const Product = (props) => {
-  const [isPressed, setIsPressed] = useState(false);
   const [numberOfItems, setNumberOfItems] = useState(0);
+  const isProductInCart = props.cartItems.find(
+    (item) => item.name === props.product.name
+  );
 
   return (
     <div className="prod-container">
@@ -26,11 +28,12 @@ const Product = (props) => {
       </div>
       <button
         className="add-btn"
-        disabled={isPressed}
+        disabled={isProductInCart}
         onClick={() => {
-          props.updateCartValue((prevNumber) => prevNumber + 1);
-
-          setIsPressed(true);
+          props.addProductToCart((prevCartItems) => [
+            ...prevCartItems,
+            props.product,
+          ]);
         }}
       >
         Add to cart

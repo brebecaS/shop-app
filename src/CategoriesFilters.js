@@ -25,6 +25,17 @@ const CategoriesFilters = (props) => {
       <div>
         <h4>Choose a category:</h4>
         {categoryElements}
+        <div className={CategoryStyles.category}>
+          <button
+            style={{ backgroundColor: "purple" }}
+            className={CategoryStyles["filter-btn"]}
+            onClick={() => {
+              props.setCartItems([]);
+            }}
+          >
+            Clear Cart
+          </button>
+        </div>
       </div>
     </div>
   );

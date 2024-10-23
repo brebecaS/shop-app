@@ -40,8 +40,9 @@ const Products = (props) => {
 
   const productsElements = filteredProducts.map((product, index) => (
     <Product
+      cartItems={props.cartItems}
       key={product.name}
-      updateCartValue={props.setNumberOfCartItems}
+      addProductToCart={props.addProductToCart}
       product={product}
     />
   ));
