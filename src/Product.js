@@ -1,39 +1,33 @@
-import { useState } from "react";
-const Product = (props) => {
-  const [numberOfItems, setNumberOfItems] = useState(0);
-  const isProductInCart = props.cartItems.find(
-    (item) => item.name === props.product.name
-  );
+// import { useState } from "react";
+
+const Product = ({ cartItems, product, addProductToCart }) => {
+  //   const [numberOfItems, setNumberOfItems] = useState(0);
+  const { title, image, category, rating, price } = product;
+
+  const isProductInCart = cartItems.find((item) => item.title === title);
+  "".slice();
+  const productName = title.length > 20 ? title.slice(0, 20) + "..." : title;
 
   return (
     <div className="prod-container">
-      <img
-        className="prod-img"
-        src={
-          "https://user-images.githubusercontent.com/42506001/221354918-01bf0e89-48be-4df7-85bb-cdf5d0136f2a.png"
-        }
-        alt={"img"}
-      />
-      <p className="prod-title">{props.product.name}</p>
-      <p className="prod-category">{props.product.category}</p>
+      <img className="prod-img" src={image} alt={"img"} />
+      <p className="prod-title">{productName}</p>
+      <p className="prod-category">{category}</p>
       <div className="price-container">
         <p>
           <small>$</small>
-          <b>99</b>
+          <b>{price}</b>
         </p>
         <p style={{ color: "gray" }}>
           <small>rating: </small>
-          <b>3.9</b>
+          <b>{rating.rate}</b>
         </p>
       </div>
       <button
         className="add-btn"
         disabled={isProductInCart}
         onClick={() => {
-          props.addProductToCart((prevCartItems) => [
-            ...prevCartItems,
-            props.product,
-          ]);
+          addProductToCart((prevCartItems) => [...prevCartItems, product]);
         }}
       >
         Add to cart

@@ -2,7 +2,7 @@ import "./Menu.css";
 
 import "./App.css";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Products from "./Products";
 
 import Cart from "./Cart";
@@ -12,6 +12,13 @@ function App() {
   //   const [numberOfCartItems, setNumberOfCartItems] = useState(0);
   const [cartItems, setCartItems] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("");
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    fetch("https://fakestoreapi.com/products")
+      .then((response) => response.json())
+      .then((decodedResponse) => setProducts(decodedResponse));
+  }, []);
 
   return (
     <div className="wrapper">
@@ -24,6 +31,7 @@ function App() {
         addProductToCart={setCartItems}
         category={selectedCategory}
         cartItems={cartItems}
+        products={products}
       />
       <Cart cartItems={cartItems} />
     </div>
