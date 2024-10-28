@@ -1,21 +1,19 @@
 import Category from "./Category";
 import CategoryStyles from "./Filters.module.css";
 
-const CategoriesFilters = (props) => {
-  const categories = [
-    { name: "category1", isClearButton: false },
-    { name: "category2", isClearButton: false },
-    { name: "category3", isClearButton: false },
-    { name: "Clear filter", isClearButton: true },
-  ];
+const CategoriesFilters = ({ setSelectedCategory, setCartItems, products }) => {
+  const categories = products.map((product) => {
+    return product.category;
+  });
 
-  const categoryElements = categories.map((category) => {
+  const uniqueCategories = [...new Set(categories)];
+
+  const categoryElements = uniqueCategories.map((category) => {
     return (
       <Category
-        key={category.name}
-        categoryName={category.name}
-        setCategory={props.setSelectedCategory}
-        isClearButton={category.isClearButton}
+        key={category}
+        categoryName={category}
+        setCategory={setSelectedCategory}
       />
     );
   });
@@ -25,12 +23,17 @@ const CategoriesFilters = (props) => {
       <div>
         <h4>Choose a category:</h4>
         {categoryElements}
+        <Category
+          categoryName={"Clear filter"}
+          setCategory={setSelectedCategory}
+          isClearButton={true}
+        />
         <div className={CategoryStyles.category}>
           <button
             style={{ backgroundColor: "purple" }}
             className={CategoryStyles["filter-btn"]}
             onClick={() => {
-              props.setCartItems([]);
+              setCartItems([]);
             }}
           >
             Clear Cart

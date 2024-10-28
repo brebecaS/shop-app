@@ -1,16 +1,16 @@
 import CategoryStyles from "./Filters.module.css";
 
-const Category = (props) => {
+const Category = ({ isClearButton, setCategory, categoryName }) => {
   return (
     <div className={CategoryStyles.category}>
       <button
         className={CategoryStyles["filter-btn"]}
         onClick={() => {
-          if (props.isClearButton) props.setCategory("");
-          else props.setCategory(props.categoryName);
+          if (isClearButton) setCategory("");
+          else setCategory(categoryName);
         }}
       >
-        {props.categoryName}
+        {categoryName}
       </button>
     </div>
   );

@@ -25,6 +25,7 @@ function App() {
       <CategoriesFilters
         setSelectedCategory={setSelectedCategory}
         setCartItems={setCartItems}
+        products={products}
       />
 
       <Products

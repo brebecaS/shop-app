@@ -1,16 +1,16 @@
 import Product from "./Product";
 
-const Products = (props) => {
+const Products = ({ products, cartItems, addProductToCart, category }) => {
   const filteredProducts =
-    props.category === ""
-      ? props.products
-      : props.products.filter((product) => product.category === props.category);
+    category === ""
+      ? products
+      : products.filter((product) => product.category === category);
 
-  const productsElements = filteredProducts.map((product, index) => (
+  const productsElements = filteredProducts.map((product) => (
     <Product
-      cartItems={props.cartItems}
-      key={product.name}
-      addProductToCart={props.addProductToCart}
+      cartItems={cartItems}
+      key={product.id}
+      addProductToCart={addProductToCart}
       product={product}
     />
   ));

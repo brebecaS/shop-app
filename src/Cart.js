@@ -1,6 +1,6 @@
 import CartStyle from "./Cart.module.css";
 
-const Cart = (props) => {
+const Cart = ({ cartItems }) => {
   return (
     <div className={CartStyle["cart-wrapper"]}>
       <button
@@ -8,12 +8,12 @@ const Cart = (props) => {
         onClick={() => {
           alert(
             "Cart Items: " +
-              props.cartItems.map((product) => product.name).join(", ")
+              cartItems.map((product) => product.title).join(", ")
           );
         }}
       >
         <div className={CartStyle.content}>
-          <div className={CartStyle.quantity}>{props.cartItems.length}</div>
+          <div className={CartStyle.quantity}>{cartItems.length}</div>
         </div>
       </button>
     </div>
