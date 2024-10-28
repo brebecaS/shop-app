@@ -2,23 +2,23 @@ import "./Menu.css";
 
 import "./App.css";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Products from "./Products";
 
 import Cart from "./Cart";
 import CategoriesFilters from "./CategoriesFilters";
 
+import useLoadProduct from "./hooks/useLoadProducts";
+import usePostProduct from "./hooks/usePostProduct";
+
 function App() {
   //   const [numberOfCartItems, setNumberOfCartItems] = useState(0);
   const [cartItems, setCartItems] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("");
-  const [products, setProducts] = useState([]);
-
-  useEffect(() => {
-    fetch("https://fakestoreapi.com/products")
-      .then((response) => response.json())
-      .then((decodedResponse) => setProducts(decodedResponse));
-  }, []);
+  const limit = 110;
+  const order = "asc";
+  const products = useLoadProduct(limit, order);
+  usePostProduct();
 
   return (
     <div className="wrapper">
