@@ -1,6 +1,9 @@
 // import { useState } from "react";
+import { useContext } from "react";
+import { CartContext } from "./App";
 
-const Product = ({ cartItems, product, addProductToCart }) => {
+const Product = ({ product }) => {
+  const { cartItems, setCartItems } = useContext(CartContext);
   //   const [numberOfItems, setNumberOfItems] = useState(0);
   const { title, image, category, rating, price } = product;
 
@@ -27,7 +30,7 @@ const Product = ({ cartItems, product, addProductToCart }) => {
         className="add-btn"
         disabled={isProductInCart}
         onClick={() => {
-          addProductToCart((prevCartItems) => [...prevCartItems, product]);
+          setCartItems((prevCartItems) => [...prevCartItems, product]);
         }}
       >
         Add to cart

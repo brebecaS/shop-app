@@ -1,6 +1,9 @@
 import CategoryStyles from "./Filters.module.css";
+import { useContext } from "react";
+import { SelectCategoryContext } from "./App";
 
-const Category = ({ isClearButton, setCategory, categoryName }) => {
+const Category = ({ isClearButton, categoryName }) => {
+  const setCategory = useContext(SelectCategoryContext);
   return (
     <div className={CategoryStyles.category}>
       <button

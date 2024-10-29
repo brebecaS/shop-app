@@ -2,7 +2,7 @@ import "./Menu.css";
 
 import "./App.css";
 
-import { useState } from "react";
+import { useState, createContext } from "react";
 import Products from "./Products";
 
 import Cart from "./Cart";
@@ -10,6 +10,9 @@ import CategoriesFilters from "./CategoriesFilters";
 
 import useLoadProduct from "./hooks/useLoadProducts";
 import usePostProduct from "./hooks/usePostProduct";
+
+export const SelectCategoryContext = createContext();
+export const CartContext = createContext();
 
 function App() {
   //   const [numberOfCartItems, setNumberOfCartItems] = useState(0);
@@ -22,18 +25,13 @@ function App() {
 
   return (
     <div className="wrapper">
-      <CategoriesFilters
-        setSelectedCategory={setSelectedCategory}
-        setCartItems={setCartItems}
-        products={products}
-      />
+      <SelectCategoryContext.Provider value={setSelectedCategory}>
+        <CategoriesFilters setCartItems={setCartItems} products={products} />
+      </SelectCategoryContext.Provider>
 
-      <Products
-        addProductToCart={setCartItems}
-        category={selectedCategory}
-        cartItems={cartItems}
-        products={products}
-      />
+      <CartContext.Provider value={{ setCartItems, cartItems }}>
+        <Products category={selectedCategory} products={products} />
+      </CartContext.Provider>
       <Cart cartItems={cartItems} />
     </div>
   );
