@@ -25,14 +25,15 @@ function App() {
 
   return (
     <div className="wrapper">
-      <SelectCategoryContext.Provider value={setSelectedCategory}>
-        <CategoriesFilters setCartItems={setCartItems} products={products} />
-      </SelectCategoryContext.Provider>
-
       <CartContext.Provider value={{ setCartItems, cartItems }}>
+        <SelectCategoryContext.Provider value={setSelectedCategory}>
+          <CategoriesFilters products={products} />
+        </SelectCategoryContext.Provider>
+
         <Products category={selectedCategory} products={products} />
+
+        <Cart />
       </CartContext.Provider>
-      <Cart cartItems={cartItems} />
     </div>
   );
 }

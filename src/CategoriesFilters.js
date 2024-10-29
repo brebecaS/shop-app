@@ -1,7 +1,11 @@
 import Category from "./Category";
 import CategoryStyles from "./Filters.module.css";
+import { useContext } from "react";
+import { CartContext } from "./App";
 
-const CategoriesFilters = ({ setCartItems, products }) => {
+const CategoriesFilters = ({ products }) => {
+  const { setCartItems } = useContext(CartContext);
+
   const categories = products.map((product) => {
     return product.category;
   });

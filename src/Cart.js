@@ -1,6 +1,10 @@
 import CartStyle from "./Cart.module.css";
+import { useContext } from "react";
+import { CartContext as NewNameForCategoryContext } from "./App";
 
-const Cart = ({ cartItems }) => {
+const Cart = () => {
+  const { cartItems: newCartItemsName } = useContext(NewNameForCategoryContext);
+
   return (
     <div className={CartStyle["cart-wrapper"]}>
       <button
@@ -8,12 +12,12 @@ const Cart = ({ cartItems }) => {
         onClick={() => {
           alert(
             "Cart Items: " +
-              cartItems.map((product) => product.title).join(", ")
+              newCartItemsName.map((product) => product.title).join(", ")
           );
         }}
       >
         <div className={CartStyle.content}>
-          <div className={CartStyle.quantity}>{cartItems.length}</div>
+          <div className={CartStyle.quantity}>{newCartItemsName.length}</div>
         </div>
       </button>
     </div>
