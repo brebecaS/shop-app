@@ -1,10 +1,10 @@
-// import { useState } from "react";
-import { useContext } from "react";
-import { CartContext } from "./App";
+import { useSelector, useDispatch } from "react-redux";
+import { addToCart } from "./cartSlice";
 
 const Product = ({ product }) => {
-  const { cartItems, setCartItems } = useContext(CartContext);
-  //   const [numberOfItems, setNumberOfItems] = useState(0);
+  const dispatch = useDispatch();
+  const cartItems = useSelector((state) => state.cart);
+
   const { title, image, category, rating, price } = product;
 
   const isProductInCart = cartItems.find((item) => item.title === title);
@@ -30,7 +30,8 @@ const Product = ({ product }) => {
         className="add-btn"
         disabled={isProductInCart}
         onClick={() => {
-          setCartItems((prevCartItems) => [...prevCartItems, product]);
+          dispatch(addToCart(product));
+          //   setCartItems((prevCartItems) => [...prevCartItems, product]);
         }}
       >
         Add to cart

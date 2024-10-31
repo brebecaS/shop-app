@@ -1,9 +1,8 @@
 import CartStyle from "./Cart.module.css";
-import { useContext } from "react";
-import { CartContext as NewNameForCategoryContext } from "./App";
+import { useSelector } from "react-redux";
 
 const Cart = () => {
-  const { cartItems: newCartItemsName } = useContext(NewNameForCategoryContext);
+  const cartItems = useSelector((state) => state.cart);
 
   return (
     <div className={CartStyle["cart-wrapper"]}>
@@ -12,12 +11,12 @@ const Cart = () => {
         onClick={() => {
           alert(
             "Cart Items: " +
-              newCartItemsName.map((product) => product.title).join(", ")
+              cartItems.map((product) => product.title).join(", ")
           );
         }}
       >
         <div className={CartStyle.content}>
-          <div className={CartStyle.quantity}>{newCartItemsName.length}</div>
+          <div className={CartStyle.quantity}>{cartItems.length}</div>
         </div>
       </button>
     </div>

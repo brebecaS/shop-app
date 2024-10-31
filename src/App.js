@@ -12,11 +12,10 @@ import useLoadProduct from "./hooks/useLoadProducts";
 import usePostProduct from "./hooks/usePostProduct";
 
 export const SelectCategoryContext = createContext();
-export const CartContext = createContext();
 
 function App() {
   //   const [numberOfCartItems, setNumberOfCartItems] = useState(0);
-  const [cartItems, setCartItems] = useState([]);
+
   const [selectedCategory, setSelectedCategory] = useState("");
   const limit = 110;
   const order = "asc";
@@ -25,15 +24,13 @@ function App() {
 
   return (
     <div className="wrapper">
-      <CartContext.Provider value={{ setCartItems, cartItems }}>
-        <SelectCategoryContext.Provider value={setSelectedCategory}>
-          <CategoriesFilters products={products} />
-        </SelectCategoryContext.Provider>
+      <SelectCategoryContext.Provider value={setSelectedCategory}>
+        <CategoriesFilters products={products} />
+      </SelectCategoryContext.Provider>
 
-        <Products category={selectedCategory} products={products} />
+      <Products category={selectedCategory} products={products} />
 
-        <Cart />
-      </CartContext.Provider>
+      <Cart />
     </div>
   );
 }

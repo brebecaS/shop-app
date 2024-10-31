@@ -1,11 +1,10 @@
 import Category from "./Category";
 import CategoryStyles from "./Filters.module.css";
-import { useContext } from "react";
-import { CartContext } from "./App";
+import { clearCart } from "./cartSlice";
+import { useDispatch } from "react-redux";
 
 const CategoriesFilters = ({ products }) => {
-  const { setCartItems } = useContext(CartContext);
-
+  const dispatch = useDispatch();
   const categories = products.map((product) => {
     return product.category;
   });
@@ -27,7 +26,7 @@ const CategoriesFilters = ({ products }) => {
             style={{ backgroundColor: "purple" }}
             className={CategoryStyles["filter-btn"]}
             onClick={() => {
-              setCartItems([]);
+              dispatch(clearCart());
             }}
           >
             Clear Cart
