@@ -1,5 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
 import { addToCart } from "./cartSlice";
+import { Link } from "react-router-dom";
 
 const Product = ({ product }) => {
   const dispatch = useDispatch();
@@ -13,7 +14,9 @@ const Product = ({ product }) => {
 
   return (
     <div className="prod-container">
-      <img className="prod-img" src={image} alt={"img"} />
+      <Link to={"/product/" + product.id}>
+        <img className="prod-img" src={image} alt={"img"} />
+      </Link>
       <p className="prod-title">{productName}</p>
       <p className="prod-category">{category}</p>
       <div className="price-container">
@@ -31,7 +34,6 @@ const Product = ({ product }) => {
         disabled={isProductInCart}
         onClick={() => {
           dispatch(addToCart(product));
-          //   setCartItems((prevCartItems) => [...prevCartItems, product]);
         }}
       >
         Add to cart

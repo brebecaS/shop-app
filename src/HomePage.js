@@ -13,7 +13,7 @@ import usePostProduct from "./hooks/usePostProduct";
 
 export const SelectCategoryContext = createContext();
 
-function App() {
+function HomePage() {
   //   const [numberOfCartItems, setNumberOfCartItems] = useState(0);
 
   const [selectedCategory, setSelectedCategory] = useState("");
@@ -29,10 +29,8 @@ function App() {
       </SelectCategoryContext.Provider>
 
       <Products category={selectedCategory} products={products} />
-
-      <Cart />
     </div>
   );
 }
 
-export default App;
+export default HomePage;
