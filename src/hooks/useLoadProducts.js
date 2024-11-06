@@ -4,12 +4,7 @@ const useLoadProducts = (numberOfProducts, order) => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetch(
-      "https://fakestoreapi.com/products?limit=" +
-        numberOfProducts +
-        "&sort=" +
-        order
-    )
+    fetch("https://fakestoreapi.com/products")
       .then((response) => response.json())
       .then((decodedResponse) => setProducts(decodedResponse));
   }, [numberOfProducts, order]);
